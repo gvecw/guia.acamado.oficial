@@ -276,6 +276,36 @@ section{padding:60px 0}
 .gl{list-style:none;margin-top:8px}
 .gl li{display:grid;grid-template-columns:24px 1fr;padding:5px 0;font-size:16px;font-weight:600;color:var(--ink)}
 .gl li::before{content:"✓";color:var(--terra);font-family:Lexend,sans-serif;font-weight:800}
+/* texto da lombada cabendo nos livros pequenos */
+.book .spine{overflow:hidden}
+.bk.m .spine span{font-size:6.5px;letter-spacing:.3px}
+.book3d.sm .spine span{font-size:6.5px;letter-spacing:.3px}
+/* popup 29,90 */
+.pop{position:fixed;inset:0;background:rgba(20,18,16,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
+.pop.on{display:flex}
+.pop-box{background:#fff;border-radius:20px;max-width:380px;width:100%;padding:28px 20px 20px;text-align:center;position:relative;max-height:94vh;overflow:auto}
+.pop-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:var(--cream);font-size:20px;line-height:1;cursor:pointer;color:var(--ink)}
+.pop-k{font-family:Lexend,sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--terra)}
+.pop-box h3{font-family:Lexend,sans-serif;font-weight:600;font-size:23px;line-height:1.2;color:var(--ink);margin-top:6px;text-wrap:balance}
+.pop .bundle{margin-top:18px}
+.pop-price{margin-top:16px;font-family:Lexend,sans-serif;display:flex;align-items:center;justify-content:center;gap:12px}
+.pop-price s{color:var(--soft);font-size:19px}
+.pop-price b{font-size:44px;font-weight:600;color:var(--ink);line-height:1}
+.pop-price b small{font-size:18px;vertical-align:top;position:relative;top:6px;margin-right:3px;color:var(--soft)}
+.pop-price b sup{font-size:20px;vertical-align:top;position:relative;top:4px}
+.pop-sub{font-size:15px;color:var(--soft);margin-top:6px}
+.pop .btn{margin-top:16px;font-size:17px}
+.pop-no{display:block;margin-top:14px;font-size:15px;color:var(--soft);text-decoration:underline}
+.hero h1{font-size:32px}
+@media (min-width:760px){.hero h1{font-size:52px}}
+section:not(.alt) .ensina div,section:not(.alt) .shelf-it,section:not(.alt) .gar{background:var(--cream);box-shadow:none}
+section.alt .shelf-it,section.alt .gar{background:#fff}
+.gar{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;border-radius:16px;padding:16px;margin-top:22px}
+.seal.sm{width:68px;height:68px;border-width:2px}
+.seal.sm b{font-size:24px}
+.seal.sm span{font-size:9px;letter-spacing:1px}
+.gar strong{display:block;font-family:Lexend,sans-serif;font-weight:600;color:var(--ink);font-size:17px}
+.gar p{font-size:15px;margin-top:2px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -286,12 +316,11 @@ section{padding:60px 0}
 <header class="hero">
   <div class="wrap center">
     <div class="kicker">Guia prático ilustrado</div>
-    <h1>Como Cuidar de Quem Está Acamado</h1>
+    <h1>Como Cuidar de<br>Quem Está Acamado</h1>
     <p class="deck">Passo a passo ilustrado, com fichas para o dia a dia em casa.</p>
     <div class="book3d" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span>Como Cuidar de Quem Está Acamado</span></div><div class="cover"><img src="img/carrossel/01-capa.jpg" alt="" ></div></div></div><div class="book3d-shadow"></div>
     <div class="hook">Chegou do hospital. E agora?</div>
-    <p>A alta saiu e, de uma hora para outra, é você quem cuida. Ninguém explicou como dar banho na cama, de quanto em quanto tempo virar ou o que fazer quando a pele fica vermelha.</p>
-    <p>Não é curso. É um guia ilustrado, passo a passo, com banho no leito, mudança de posição, prevenção de escara, alimentação e remédios, além de fichas para organizar a rotina. Você consulta no celular ou imprime e deixa do lado da cama.</p>
+    <p>A alta saiu e, de uma hora para outra, é você quem cuida. Aqui está cada cuidado, desenhado passo a passo.</p>
     <a class="btn pulse" href="#precos">Quero o meu guia</a>
   </div>
 </header>
@@ -321,15 +350,7 @@ section{padding:60px 0}
       <p class="quote">Vídeo solto na internet tem. Aqui está tudo num lugar só, na ordem certa.</p>
       <small>Não substitui a equipe de saúde.</small>
     </div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section class="alt">
-  <div class="wrap">
-    <div class="kicker center">Como funciona</div>
-    <h2 class="center">Simples assim</h2>
-    <div class="steps">
+    <div class="steps" style="margin-top:28px">
       <div><b>1</b><h3>Você recebe</h3><p>No e-mail e no WhatsApp, logo após o pagamento.</p></div>
       <div><b>2</b><h3>Imprime ou abre no celular</h3><p>Do jeito que for mais fácil para você.</p></div>
       <div><b>3</b><h3>Usa do lado da cama</h3><p>Abra na página e siga o desenho.</p></div>
@@ -338,7 +359,7 @@ section{padding:60px 0}
 </section>
 
 <!-- POR DENTRO -->
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="kicker center">Veja por dentro</div>
     <h2 class="center">Cada cuidado desenhado, passo a passo</h2>
@@ -350,7 +371,7 @@ section{padding:60px 0}
 </section>
 
 <!-- O QUE VEM DENTRO -->
-<section class="alt">
+<section>
   <div class="wrap">
     <div class="kicker center">O que o guia ensina</div>
     <h2 class="center">Do banho à cadeira, cada cuidado explicado</h2>
@@ -369,7 +390,7 @@ section{padding:60px 0}
 </section>
 
 <!-- KIT -->
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="kicker center">Bônus do plano Completo</div>
     <h2 class="center">🎁 4 bônus que acompanham o guia</h2>
@@ -383,7 +404,7 @@ section{padding:60px 0}
 </section>
 
 <!-- PREÇOS -->
-<section id="precos" class="alt">
+<section id="precos">
   <div class="wrap">
     <div class="kicker center">Escolha o seu</div>
     <h2 class="center">Comece hoje</h2>
@@ -438,15 +459,7 @@ section{padding:60px 0}
       </div>
     </div>
     <p class="note" style="margin-top:20px">Você recebe na hora, no e-mail e no WhatsApp.</p>
-  </div>
-</section>
-
-<!-- GARANTIA -->
-<section>
-  <div class="wrap center">
-    <div class="seal"><b>30</b><span>DIAS</span></div>
-    <h2 style="margin-top:18px">Garantia de 30 dias</h2>
-    <p style="margin-top:12px">Se o guia não te ajudar, devolvemos 100% do seu dinheiro. É só pedir.</p>
+    <div class="gar"><div class="seal sm"><b>30</b><span>DIAS</span></div><div><strong>Garantia de 30 dias</strong><p>Se o guia não te ajudar, devolvemos 100% do seu dinheiro. É só pedir.</p></div></div>
   </div>
 </section>
 
@@ -468,6 +481,26 @@ section{padding:60px 0}
     <a class="btn pulse" href="#precos">Quero o meu guia</a>
   </div>
 </section>
+
+<!-- POPUP 29,90 -->
+<div class="pop" id="pop" aria-hidden="true">
+  <div class="pop-box">
+    <button class="pop-x" aria-label="Fechar">×</button>
+    <div class="pop-k">Espera!</div>
+    <h3>Leve os 4 bônus por só mais R$10</h3>
+    <div class="bundle">
+      <div class="bk s b1"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/01_Fichas_para_a_geladeira.webp" alt=""></div></div></div>
+      <div class="bk s b4"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/04_Direitos_da_familia.webp" alt=""></div></div></div>
+      <div class="bk s b2"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/02_Kit_dos_primeiros_dias.webp" alt=""></div></div></div>
+      <div class="bk s b3"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/03_Alivio_para_quem_cuida.webp" alt=""></div></div></div>
+      <div class="bk m"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span>Como Cuidar de Quem Está Acamado</span></div><div class="cover"><img src="img/carrossel/01-capa.jpg" alt=""></div></div></div>
+    </div>
+    <div class="pop-price"><s>R$37</s><b><small>R$</small>29<sup>,90</sup></b></div>
+    <p class="pop-sub">Guia completo + 4 bônus. Pagamento único.</p>
+    <a class="btn pulse" href="#" data-plano="completo-2990">Quero o Completo por R$29,90</a>
+    <a class="pop-no" href="#" id="popNo">Não, quero só o Básico</a>
+  </div>
+</div>
 
 <footer>
   <b>Como Cuidar de Quem Está Acamado</b>
@@ -519,6 +552,15 @@ document.querySelectorAll('.book3d').forEach(box=>{
   const solta=()=>{if(x0===null)return;x0=null;pos(base,true);};
   box.addEventListener('pointerup',solta);box.addEventListener('pointercancel',solta);
 });
+</script>
+<script>
+(()=>{const pop=document.getElementById('pop'),bas=document.querySelector('[data-plano="basico"]');if(!pop||!bas)return;let visto=false;
+bas.addEventListener('click',e=>{if(visto)return;e.preventDefault();visto=true;pop.classList.add('on');});
+const fecha=()=>pop.classList.remove('on');
+pop.querySelector('.pop-x').addEventListener('click',fecha);
+pop.addEventListener('click',e=>{if(e.target===pop)fecha();});
+document.getElementById('popNo').addEventListener('click',e=>{e.preventDefault();fecha();const h=bas.getAttribute('href');if(h&&h!=='#')location.href=h;});
+})();
 </script>
 </body>
 </html>
