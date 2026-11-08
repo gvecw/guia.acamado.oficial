@@ -240,6 +240,42 @@ section{padding:60px 0}
 .book3d.sm .spine span{font-size:8px}
 .book .cover img.mk{position:absolute;max-width:none;width:159.95%;height:106.09%;left:-32.65%;top:-3.05%;object-fit:fill}
 @media (min-width:760px){.shelf{grid-template-columns:repeat(4,1fr)}}
+/* capas novas dos bônus (retas, 2:3) */
+.book3d.sm .book,.bk.s .book{aspect-ratio:2/3}
+.book .cover img.mk,.bk .book .cover img.mk{position:absolute;inset:0;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.shelf-it:nth-child(1) .spine,.bk.b1 .spine{background:#0f3311!important}
+.shelf-it:nth-child(2) .spine,.bk.b2 .spine{background:#7a1f0a!important}
+.shelf-it:nth-child(3) .spine,.bk.b3 .spine{background:#01364a!important}
+.shelf-it:nth-child(4) .spine,.bk.b4 .spine{background:#4a0130!important}
+/* bônus empilhados em cards */
+.shelf{grid-template-columns:1fr!important;gap:14px;counter-reset:bn}
+.shelf-it{counter-increment:bn;display:grid;grid-template-columns:96px 1fr;column-gap:18px;align-items:center;text-align:left;background:var(--cream);border-radius:16px;padding:20px 18px 20px 14px;overflow:hidden}
+.shelf-it .book3d.sm{grid-row:1/span 2;margin:0}
+.shelf-it .book3d.sm .book{width:80px}
+.shelf-it h3{margin-top:0!important;font-size:18px;align-self:end}
+.shelf-it h3::before{content:"Bônus " counter(bn);display:block;font-family:Lexend,sans-serif;font-weight:700;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
+.shelf-it p{align-self:start;font-size:15px;margin-top:6px}
+@media (min-width:760px){.shelf{grid-template-columns:1fr 1fr!important}}
+/* card de 37: guia + bônus juntos */
+.bundle{position:relative;height:176px;max-width:310px;margin:8px auto 0;perspective:1400px}
+.bundle.solo{height:172px;max-width:160px}
+.bk{position:absolute;bottom:0}
+.bk .book{width:100%;transform:rotateY(22deg) rotateX(3deg)}
+.bk.m{width:118px;left:50%;margin-left:-59px;z-index:5}
+.bk.s{width:76px}
+.bk.s .book{aspect-ratio:2/3}
+.bk.s .cover{transform:translateZ(8px)}
+.bk.s .back{transform:translateZ(-8px)}
+.bk.s .spine{width:16px;transform:translateZ(8px) rotateY(90deg)}
+.bk.s .spine span{display:none}
+.bk.s .pages{width:14px;transform:rotateY(90deg) translateZ(-1px) translateX(7px)}
+.bk.b1{left:0;bottom:34px;z-index:1}
+.bk.b2{left:32px;bottom:12px;z-index:2}
+.bk.b4{right:0;bottom:34px;z-index:1}
+.bk.b3{right:32px;bottom:12px;z-index:2}
+.gl{list-style:none;margin-top:8px}
+.gl li{display:grid;grid-template-columns:24px 1fr;padding:5px 0;font-size:16px;font-weight:600;color:var(--ink)}
+.gl li::before{content:"✓";color:var(--terra);font-family:Lexend,sans-serif;font-weight:800}
 </style>
 </head>
 <body>
@@ -338,10 +374,10 @@ section{padding:60px 0}
     <div class="kicker center">Bônus do plano Completo</div>
     <h2 class="center">🎁 4 bônus que acompanham o guia</h2>
     <div class="shelf">
-      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Fichas para a geladeira</span></div><div class="cover"><img class="mk" src="img/01_Fichas_para_a_geladeira.png" alt="" loading="lazy"></div></div></div><h3>Fichas para a geladeira</h3><p>Rotina, remédios, mudança de posição, pele e emergência.</p></div>
-      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Kit dos primeiros dias</span></div><div class="cover"><img class="mk" src="img/02_Kit_dos_primeiros_dias.png" alt="" loading="lazy"></div></div></div><h3>Kit dos primeiros dias</h3><p>O que fazer quando a pessoa chega em casa e o que comprar para o quarto.</p></div>
-      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Alívio para quem cuida</span></div><div class="cover"><img class="mk" src="img/03_Alivio_para_quem_cuida.png" alt="" loading="lazy"></div></div></div><h3>Alívio para quem cuida</h3><p>Alongamentos de 5 minutos para as costas e um jeito simples de revezar.</p></div>
-      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Direitos da família</span></div><div class="cover"><img class="mk" src="img/04_Direitos_da_familia.png" alt="" loading="lazy"></div></div></div><h3>Direitos da família</h3><p>Fralda grátis, atendimento em casa pelo SUS e outros direitos, explicados.</p></div>
+      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Fichas para a geladeira</span></div><div class="cover"><img class="mk" src="img/01_Fichas_para_a_geladeira.webp" alt="" loading="lazy"></div></div></div><h3>Fichas para a geladeira</h3><p>Rotina, remédios, mudança de posição, pele e emergência.</p></div>
+      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Kit dos primeiros dias</span></div><div class="cover"><img class="mk" src="img/02_Kit_dos_primeiros_dias.webp" alt="" loading="lazy"></div></div></div><h3>Kit dos primeiros dias</h3><p>O que fazer quando a pessoa chega em casa e o que comprar para o quarto.</p></div>
+      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Alívio para quem cuida</span></div><div class="cover"><img class="mk" src="img/03_Alivio_para_quem_cuida.webp" alt="" loading="lazy"></div></div></div><h3>Alívio para quem cuida</h3><p>Alongamentos de 5 minutos para as costas e um jeito simples de revezar.</p></div>
+      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Direitos da família</span></div><div class="cover"><img class="mk" src="img/04_Direitos_da_familia.webp" alt="" loading="lazy"></div></div></div><h3>Direitos da família</h3><p>Fralda grátis, atendimento em casa pelo SUS e outros direitos, explicados.</p></div>
     </div>
   </div>
 </section>
@@ -354,7 +390,13 @@ section{padding:60px 0}
     <div class="plans">
       <div class="plan main">
         <div class="tag">Mais escolhido</div>
-        <img class="mini" src="img/carrossel/01-capa.jpg" alt="" loading="lazy" style="width:120px;box-shadow:0 8px 20px rgba(42,38,35,.18)">
+        <div class="bundle">
+          <div class="bk s b1"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/01_Fichas_para_a_geladeira.webp" alt=""></div></div></div>
+          <div class="bk s b4"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/04_Direitos_da_familia.webp" alt=""></div></div></div>
+          <div class="bk s b2"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/02_Kit_dos_primeiros_dias.webp" alt=""></div></div></div>
+          <div class="bk s b3"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span></span></div><div class="cover"><img class="mk" src="img/03_Alivio_para_quem_cuida.webp" alt=""></div></div></div>
+          <div class="bk m"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span>Como Cuidar de Quem Está Acamado</span></div><div class="cover"><img src="img/carrossel/01-capa.jpg" alt=""></div></div></div>
+        </div>
         <h3>Plano Completo</h3>
         <p class="sub">Guia + 4 bônus</p>
         <div class="price"><small>R$</small>37</div>
@@ -367,16 +409,19 @@ section{padding:60px 0}
           <li>Acesso para sempre</li>
         </ul>
         <div class="gift">
-          <div class="gt">🎁 Bônus de presente</div>
-          <div class="gi"><img src="img/01_Fichas_para_a_geladeira.webp" alt="" loading="lazy"><span>Fichas para a geladeira<small>Acompanha o guia</small></span></div>
-          <div class="gi"><img src="img/02_Kit_dos_primeiros_dias.webp" alt="" loading="lazy"><span>Kit dos primeiros dias<small>Acompanha o guia</small></span></div>
-          <div class="gi"><img src="img/03_Alivio_para_quem_cuida.webp" alt="" loading="lazy"><span>Alívio para quem cuida<small>Acompanha o guia</small></span></div>
-          <div class="gi"><img src="img/04_Direitos_da_familia.webp" alt="" loading="lazy"><span>Direitos da família<small>Acompanha o guia</small></span></div>
+          <div class="gt">🎁 + 4 bônus de presente</div>
+          <ul class="gl">
+            <li>Fichas para a geladeira</li>
+            <li>Kit dos primeiros dias</li>
+            <li>Alívio para quem cuida</li>
+            <li>Direitos da família</li>
+          </ul>
         </div>
         <a class="btn pulse" href="#" data-plano="completo">Quero o Completo</a>
       </div>
       <div class="plan">
-        <h3 style="margin-top:0">Plano Básico</h3>
+        <div class="bundle solo"><div class="bk m"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span>Como Cuidar de Quem Está Acamado</span></div><div class="cover"><img src="img/carrossel/01-capa.jpg" alt=""></div></div></div></div>
+        <h3>Plano Básico</h3>
         <p class="sub">Só o guia</p>
         <div class="price"><small>R$</small>19<sup>,90</sup></div>
         <p class="once">Pagamento único</p>
