@@ -144,12 +144,9 @@ details p{margin-top:8px;font-size:16px}
 
 /* livro 3D */
 .book3d{perspective:1400px;display:flex;justify-content:center;margin:30px 0 6px}
-.book{position:relative;width:200px;aspect-ratio:210/297;transform-style:preserve-3d;transform:rotateY(26deg) rotateX(4deg);animation:sway 6s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:rotateY(26deg) rotateX(4deg)}50%{transform:rotateY(16deg) rotateX(2deg)}}
-@media (prefers-reduced-motion:reduce){.book{animation:none}}
-.book{transition:transform .7s cubic-bezier(.2,.8,.2,1)}
-.book3d:hover .book,.book3d.on .book{animation:none;transform:rotateY(0deg) rotateX(0deg) translateY(-8px) scale(1.04)}
-.book3d{cursor:pointer}
+.book{position:relative;width:200px;aspect-ratio:210/297;transform-style:preserve-3d;transform:rotateY(26deg) rotateX(4deg)}
+.book3d{touch-action:pan-y;cursor:grab;user-select:none}
+.book3d:active{cursor:grabbing}
 .book .cover{position:absolute;inset:0;border-radius:2px 6px 6px 2px;overflow:hidden;transform:translateZ(14px);box-shadow:inset 5px 0 8px rgba(0,0,0,.2),18px 22px 34px rgba(42,38,35,.22)}
 .book .cover img{width:100%;height:100%;object-fit:cover}
 .book .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.25),rgba(255,255,255,0) 40%,rgba(0,0,0,.06))}
@@ -199,6 +196,37 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
   .bon{grid-template-columns:repeat(4,1fr)}
   .slide{flex-basis:300px}
 }
+/* ===== REVISÃO 3: espaçamento, cards e preços ===== */
+section{padding:60px 0}
+.wrap>h2+*{margin-top:28px}
+.dores{display:grid;gap:12px}
+.dores .dor{background:#fff;border-radius:14px;padding:14px!important;grid-template-columns:84px 1fr;box-shadow:0 3px 12px rgba(42,38,35,.06)}
+.dores .dor img{width:84px;height:84px}
+.fecho{margin-top:36px}
+.card-o{background:var(--cream);border-radius:16px;padding:26px 22px;text-align:center}
+.card-o p{font-size:18px}
+.card-o .quote{margin-top:16px;font-size:20px}
+.card-o small{display:block;margin-top:16px;font-family:Lexend,sans-serif;font-weight:600;font-size:13px;color:var(--soft)}
+.note.hint{margin-top:14px}
+.ensina{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ensina div{background:#fff;border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 3px 12px rgba(42,38,35,.06)}
+.ensina b{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:var(--teal);color:#fff;font-family:Lexend,sans-serif;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center}
+.ensina span{font-family:Lexend,sans-serif;font-weight:600;font-size:16px;line-height:1.25;color:var(--ink)}
+.ensina div:last-child{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px}
+@media (min-width:760px){.ensina{grid-template-columns:repeat(3,1fr)}.ensina div:last-child{grid-column:auto;flex-direction:column;align-items:flex-start}}
+.plan{background:#fff;border:1px solid var(--rule)!important;border-radius:18px;padding:32px 22px 24px;box-shadow:0 8px 24px rgba(42,38,35,.08)}
+.plan.main{border:3px solid var(--teal)!important;box-shadow:0 16px 40px rgba(29,79,70,.18)}
+.plan h3{font-size:16px;margin-top:14px}
+.plan .sub{text-align:center;font-size:15px;color:var(--soft);margin-top:2px}
+.plan .once{text-align:center;font-family:Lexend,sans-serif;font-weight:600;font-size:13px;color:var(--soft);margin-top:6px}
+.items{margin-top:20px}
+.items li{padding:6px 0;font-size:16.5px;line-height:1.35}
+.items li.no{color:#a39890;text-decoration:line-through}
+.items li.no::before{content:"✗";color:#c2412f}
+.gift{background:#fdf3ea;border:2px dashed #e7b993;padding:16px 14px 10px}
+.gift .gt{font-size:14px}
+.gift .gi{font-weight:600}
+.gift .gi small{display:block;font-weight:400;font-size:13px;color:var(--soft)}
 </style>
 </head>
 <body>
@@ -224,12 +252,12 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
   <div class="wrap">
     <div class="kicker center">Se identificou?</div>
     <h2 class="center">Você se reconhece em alguma dessas situações?</h2>
-    <div class="rule"></div>
-    <div class="dor"><img src="img/ilustra/banho.jpg" alt="" loading="lazy"><div><h3>Não sabe dar banho sem tirar da cama</h3><p>Medo de molhar demais, de deixar cair ou de machucar.</p></div></div>
-    <div class="dor"><img src="img/ilustra/pele.jpg" alt="" loading="lazy"><div><h3>Medo de abrir uma ferida na pele</h3><p>A pele fica vermelha e você não sabe se é normal ou se já é o começo de uma escara.</p></div></div>
-    <div class="dor"><img src="img/ilustra/costas.jpg" alt="" loading="lazy"><div><h3>As costas já não aguentam</h3><p>Virar na cama e passar para a cadeira sozinha está acabando com a sua coluna.</p></div></div>
-    <div class="dor"><img src="img/ilustra/comida.jpg" alt="" loading="lazy"><div><h3>A rotina virou uma bagunça</h3><p>Remédio, comida, fralda e mudança de posição. Tudo na cabeça e o medo de esquecer alguma coisa.</p></div></div>
-    <div class="sozinha"><h3>Está cuidando sozinha e já não aguenta</h3><p>As costas doem, o sono não vem e parece que só você se preocupa.</p></div>
+    <div class="dores">
+      <div class="dor"><img src="img/ilustra/banho.jpg" alt="" loading="lazy"><div><h3>Não sabe dar banho sem tirar da cama</h3><p>Medo de molhar demais, de deixar cair ou de machucar.</p></div></div>
+      <div class="dor"><img src="img/ilustra/pele.jpg" alt="" loading="lazy"><div><h3>Medo de abrir uma ferida na pele</h3><p>A pele fica vermelha e você não sabe se já é o começo de uma escara.</p></div></div>
+      <div class="dor"><img src="img/ilustra/costas.jpg" alt="" loading="lazy"><div><h3>As costas já não aguentam</h3><p>Virar na cama e passar para a cadeira sozinha está acabando com a sua coluna.</p></div></div>
+      <div class="dor"><img src="img/ilustra/comida.jpg" alt="" loading="lazy"><div><h3>A rotina virou uma bagunça</h3><p>Remédio, comida, fralda e mudança de posição. Tudo na cabeça.</p></div></div>
+    </div>
     <p class="fecho">Não é falta de amor.<br>É que ninguém te ensinou.</p>
   </div>
 </section>
@@ -239,15 +267,13 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
   <div class="wrap">
     <div class="kicker center">O que é</div>
     <h2 class="center">Um guia para usar do lado da cama</h2>
-    
-    <div class="rule"></div>
-    <p style="margin-top:22px">É um guia ilustrado, em linguagem simples, que mostra o passo a passo dos cuidados do dia a dia com uma pessoa acamada. Você consulta no celular na hora que precisa ou imprime e deixa do lado da cama.</p>
-    <p>Junto vêm fichas prontas para organizar os remédios, os horários de mudança de posição e a rotina da casa.</p>
-    <p class="quote">Tem vídeo solto na internet, sim. A diferença é ter tudo num lugar só, na ordem certa e desenhado passo a passo, para consultar na hora, sem ficar procurando.</p>
-    <div class="chips"><span>No celular</span><span>Para imprimir</span><span>Para dividir com a família</span></div>
+    <div class="card-o">
+      <p>Juntamos o que hospitais e materiais oficiais orientam e transformamos em desenho, passo a passo, em linguagem simples.</p>
+      <p class="quote">Vídeo solto na internet tem. Aqui está tudo num lugar só, na ordem certa.</p>
+      <small>Não substitui a equipe de saúde.</small>
+    </div>
   </div>
 </section>
-
 
 <!-- COMO FUNCIONA -->
 <section class="alt">
@@ -255,9 +281,9 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
     <div class="kicker center">Como funciona</div>
     <h2 class="center">Simples assim</h2>
     <div class="steps">
-      <div><b>1</b><h3>Você recebe</h3><p>Logo depois do pagamento, o guia chega no seu e-mail e no seu WhatsApp.</p></div>
-      <div><b>2</b><h3>Imprime ou abre no celular</h3><p>Imprima as fichas e deixe o guia à mão, ou consulte direto no celular.</p></div>
-      <div><b>3</b><h3>Usa do lado da cama</h3><p>Na hora do banho, de virar ou de dar a comida, abra na página e siga o desenho.</p></div>
+      <div><b>1</b><h3>Você recebe</h3><p>No e-mail e no WhatsApp, logo após o pagamento.</p></div>
+      <div><b>2</b><h3>Imprime ou abre no celular</h3><p>Do jeito que for mais fácil para você.</p></div>
+      <div><b>3</b><h3>Usa do lado da cama</h3><p>Abra na página e siga o desenho.</p></div>
     </div>
   </div>
 </section>
@@ -267,9 +293,9 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
   <div class="wrap">
     <div class="kicker center">Veja por dentro</div>
     <h2 class="center">Cada cuidado desenhado, passo a passo</h2>
-    <p class="note" style="margin-top:12px">Arraste para o lado e toque na página para ver grande</p>
     <div class="car" id="car"></div>
     <div class="dots" id="dots"></div>
+    <p class="note hint">Arraste para o lado e toque na página para ver grande</p>
     <a class="btn pulse" href="#precos">Quero o meu guia</a>
   </div>
 </section>
@@ -279,16 +305,16 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
   <div class="wrap">
     <div class="kicker center">O que o guia ensina</div>
     <h2 class="center">Do banho à cadeira, cada cuidado explicado</h2>
-    <div class="sum">
-      <div><b>1</b><span><strong>Primeiros dias em casa</strong><small>O que preparar no quarto, na cama e no banheiro</small></span></div>
-      <div><b>2</b><span><strong>Higiene</strong><small>Banho no leito, troca de fralda e cuidado com a boca</small></span></div>
-      <div><b>3</b><span><strong>Remédios sem erro</strong><small>Horários, doses e como dar com segurança</small></span></div>
-      <div><b>4</b><span><strong>Posições e movimento</strong><small>Virar de lado, sentar e passar para a cadeira</small></span></div>
-      <div><b>5</b><span><strong>Pele e escara</strong><small>Onde olhar, o teste do dedo e quando avisar</small></span></div>
-      <div><b>6</b><span><strong>Alimentação</strong><small>Como evitar engasgo e manter a hidratação</small></span></div>
-      <div><b>7</b><span><strong>Sinais de alerta</strong><small>O que observar e quando chamar ajuda</small></span></div>
-      <div><b>8</b><span><strong>Situações especiais</strong><small>Depois de um AVC, demência e sonda</small></span></div>
-      <div><b>9</b><span><strong>Quem cuida também precisa de cuidado</strong><small>Coluna, cansaço e divisão de tarefas</small></span></div>
+    <div class="ensina">
+      <div><b>1</b><span>Primeiros dias em casa</span></div>
+      <div><b>2</b><span>Higiene e banho na cama</span></div>
+      <div><b>3</b><span>Remédios sem erro</span></div>
+      <div><b>4</b><span>Virar, sentar e passar para a cadeira</span></div>
+      <div><b>5</b><span>Pele e escara</span></div>
+      <div><b>6</b><span>Alimentação e boca</span></div>
+      <div><b>7</b><span>Sinais de alerta</span></div>
+      <div><b>8</b><span>Situações especiais</span></div>
+      <div><b>9</b><span>Quem cuida também precisa de cuidado</span></div>
     </div>
   </div>
 </section>
@@ -296,32 +322,14 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
 <!-- KIT -->
 <section>
   <div class="wrap">
-    <div class="kicker center">O que vem no kit Completo</div>
-    <h2 class="center">Tudo o que você precisa, num lugar só</h2>
-    <div class="kit">
-      <div class="it"><img src="img/carrossel/01-capa.jpg" alt="" loading="lazy"><div><h3>Guia prático ilustrado</h3><p>Os cuidados do dia a dia, desenhados passo a passo.</p></div></div>
-      <div class="it"><img src="img/bonus/fichas.jpg" alt="" loading="lazy"><div><span class="lab">Acompanha</span><h3>Fichas para a geladeira</h3><p>Rotina, remédios, mudança de posição, pele e emergência.</p></div></div>
-      <div class="it"><img src="img/bonus/primeiros-dias.jpg" alt="" loading="lazy"><div><span class="lab">Acompanha</span><h3>Kit dos primeiros dias</h3><p>O que fazer quando a pessoa chega em casa e o que comprar para o quarto.</p></div></div>
-      <div class="it"><img src="img/bonus/alivio.jpg" alt="" loading="lazy"><div><span class="lab">Acompanha</span><h3>Alívio para quem cuida</h3><p>Alongamentos de 5 minutos para as costas e um jeito simples de revezar.</p></div></div>
-      <div class="it"><img src="img/bonus/direitos.jpg" alt="" loading="lazy"><div><span class="lab">Acompanha</span><h3>Direitos da família</h3><p>Fralda grátis, atendimento em casa pelo SUS e outros direitos, explicados.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- POR QUE -->
-<section class="why alt">
-  <div class="wrap center">
-    <div class="kicker">Por que este guia existe</div>
-    <h2>Ninguém deveria aprender isso sozinho</h2>
-    <div class="rule" style="width:60px;margin:22px auto 0;background:var(--teal)"></div>
-    <p style="margin-top:22px">Quem cuida de alguém acamado em casa quase sempre aprende sozinho, na pressa e com medo de errar.</p>
-    <p>Este guia junta as orientações que hospitais e materiais oficiais dão para cuidadores e transforma tudo em passo a passo desenhado, em linguagem simples, para a família.</p>
-    <p style="font-weight:600;color:var(--ink)">Não substitui a equipe de saúde. Ele te ajuda a fazer o dia a dia com mais segurança e menos medo.</p>
+    <div class="kicker center">Bônus do plano Completo</div>
+    <h2 class="center">🎁 4 bônus que acompanham o guia</h2>
+    <div class="shelf"><div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#c46a43"><span>Fichas para a geladeira</span></div><div class="cover"><img src="img/bonus/fichas.jpg" alt="" loading="lazy"></div></div></div><span class="lab">Bônus 1</span><h3>Fichas para a geladeira</h3><p>Rotina, remédios, mudança de posição, pele e emergência.</p></div><div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#2f6f62"><span>Kit dos primeiros dias</span></div><div class="cover"><img src="img/bonus/primeiros-dias.jpg" alt="" loading="lazy"></div></div></div><span class="lab">Bônus 2</span><h3>Kit dos primeiros dias</h3><p>O que fazer quando a pessoa chega em casa e o que comprar para o quarto.</p></div><div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#7c8f3f"><span>Alívio para quem cuida</span></div><div class="cover"><img src="img/bonus/alivio.jpg" alt="" loading="lazy"></div></div></div><span class="lab">Bônus 3</span><h3>Alívio para quem cuida</h3><p>Alongamentos de 5 minutos para as costas e um jeito simples de revezar.</p></div><div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#b8863a"><span>Direitos da família</span></div><div class="cover"><img src="img/bonus/direitos.jpg" alt="" loading="lazy"></div></div></div><span class="lab">Bônus 4</span><h3>Direitos da família</h3><p>Fralda grátis, atendimento em casa pelo SUS e outros direitos, explicados.</p></div></div>
   </div>
 </section>
 
 <!-- PREÇOS -->
-<section id="precos">
+<section id="precos" class="alt">
   <div class="wrap">
     <div class="kicker center">Escolha o seu</div>
     <h2 class="center">Comece hoje</h2>
@@ -329,37 +337,49 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
       <div class="plan main">
         <div class="tag">Mais escolhido</div>
         <img class="mini" src="img/carrossel/01-capa.jpg" alt="" loading="lazy" style="width:120px;box-shadow:0 8px 20px rgba(42,38,35,.18)">
-        <h3>Completo</h3>
+        <h3>Plano Completo</h3>
+        <p class="sub">Guia + 4 bônus</p>
         <div class="price"><small>R$</small>37</div>
+        <p class="once">Pagamento único</p>
         <ul class="items">
-          <li>Guia prático ilustrado</li>
+          <li>Guia completo, do banho à cadeira</li>
+          <li>Cada cuidado desenhado, passo a passo</li>
+          <li>No celular ou impresso</li>
+          <li>Pode dividir com a família</li>
           <li>Acesso para sempre</li>
         </ul>
         <div class="gift">
-          <div class="gt">🎁 Acompanha</div>
-          <div class="gi"><img src="img/bonus/fichas.jpg" alt="" loading="lazy">Fichas para imprimir</div>
-          <div class="gi"><img src="img/bonus/primeiros-dias.jpg" alt="" loading="lazy">Kit dos primeiros dias</div>
-          <div class="gi"><img src="img/bonus/alivio.jpg" alt="" loading="lazy">Alívio para quem cuida</div>
-          <div class="gi"><img src="img/bonus/direitos.jpg" alt="" loading="lazy">Direitos da família</div>
+          <div class="gt">🎁 Bônus de presente</div>
+          <div class="gi"><img src="img/bonus/fichas.jpg" alt="" loading="lazy"><span>Fichas para a geladeira<small>Acompanha o guia</small></span></div>
+          <div class="gi"><img src="img/bonus/primeiros-dias.jpg" alt="" loading="lazy"><span>Kit dos primeiros dias<small>Acompanha o guia</small></span></div>
+          <div class="gi"><img src="img/bonus/alivio.jpg" alt="" loading="lazy"><span>Alívio para quem cuida<small>Acompanha o guia</small></span></div>
+          <div class="gi"><img src="img/bonus/direitos.jpg" alt="" loading="lazy"><span>Direitos da família<small>Acompanha o guia</small></span></div>
         </div>
         <a class="btn pulse" href="#" data-plano="completo">Quero o Completo</a>
       </div>
       <div class="plan">
-        <h3 style="margin-top:0">Básico</h3>
+        <h3 style="margin-top:0">Plano Básico</h3>
+        <p class="sub">Só o guia</p>
         <div class="price"><small>R$</small>19<sup>,90</sup></div>
+        <p class="once">Pagamento único</p>
         <ul class="items">
-          <li>Guia prático ilustrado</li>
+          <li>Guia completo, do banho à cadeira</li>
+          <li>No celular ou impresso</li>
           <li>Acesso para sempre</li>
+          <li class="no">Fichas para a geladeira</li>
+          <li class="no">Kit dos primeiros dias</li>
+          <li class="no">Alívio para quem cuida</li>
+          <li class="no">Direitos da família</li>
         </ul>
-        <a class="btn ghost" href="#" data-plano="basico">Quero o Básico</a>
+        <a class="btn ghost" href="#" data-plano="basico">Quero só o Básico</a>
       </div>
     </div>
-    <p class="note" style="margin-top:20px">Pagamento único. Você recebe na hora, no e-mail e no WhatsApp.</p>
+    <p class="note" style="margin-top:20px">Você recebe na hora, no e-mail e no WhatsApp.</p>
   </div>
 </section>
 
 <!-- GARANTIA -->
-<section class="alt">
+<section>
   <div class="wrap center">
     <div class="seal"><b>30</b><span>DIAS</span></div>
     <h2 style="margin-top:18px">Garantia de 30 dias</h2>
@@ -368,17 +388,19 @@ footer b{font-family:Lexend,sans-serif;font-weight:600;font-size:18px;color:#fff
 </section>
 
 <!-- FAQ -->
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="kicker center">Dúvidas</div>
     <h2 class="center">Perguntas frequentes</h2>
     <div class="faq">
-      <details><summary>Como eu recebo?</summary><p>Logo depois do pagamento, o acesso chega no seu e-mail e no seu WhatsApp.</p></details>
-      <details><summary>Funciona no celular?</summary><p>Sim. Dá para ler no celular e também imprimir para deixar do lado da cama.</p></details>
-      <details><summary>Preciso ter experiência?</summary><p>Não. O guia foi feito para quem nunca cuidou de ninguém, com desenho de cada passo e linguagem simples.</p></details>
-      <details><summary>Serve para o meu caso?</summary><p>O guia ensina os cuidados do dia a dia de qualquer pessoa que passa muito tempo na cama. Cuidados técnicos, como sonda e curativos, sempre seguem a orientação da equipe de saúde.</p></details>
-      <details><summary>O guia substitui o médico ou o enfermeiro?</summary><p>Não. Ele é um apoio para o dia a dia em casa. Sempre siga as orientações da equipe de saúde que acompanha a pessoa.</p></details>
-      <details><summary>E se eu não gostar?</summary><p>Você tem 30 dias de garantia. Se não te ajudar, devolvemos todo o seu dinheiro.</p></details>
+      <details><summary>Eu nunca cuidei de ninguém. Vou conseguir?</summary><p>Vai. O guia foi feito para quem está começando agora: cada cuidado tem o desenho de cada passo e explicação em linguagem simples.</p></details>
+      <details><summary>Serve para quem teve AVC, fratura ou tem Alzheimer?</summary><p>Serve. O guia ensina os cuidados do dia a dia de quem passa muito tempo na cama: banho, fralda, virar, pele, comida e cadeira. O que for específico da doença segue a orientação do médico.</p></details>
+      <details><summary>Tem tudo isso de graça no YouTube, não?</summary><p>Tem vídeo solto. Aqui está tudo num lugar só, na ordem certa, e dá para deixar do lado da cama e consultar na hora em que você precisa.</p></details>
+      <details><summary>Não tenho impressora. Funciona?</summary><p>Funciona. Você abre no celular. Se quiser as fichas no papel, dá para imprimir em qualquer papelaria.</p></details>
+      <details><summary>Posso dividir com meus irmãos que revezam comigo?</summary><p>Pode. Mande para quem ajuda a cuidar. Assim todo mundo faz do mesmo jeito.</p></details>
+      <details><summary>A pessoa tem ferida ou usa sonda. O guia ajuda?</summary><p>Ajuda no dia a dia: ensina a perceber a escara no começo e a cuidar da pele. Curativo e sonda seguem sempre a orientação da equipe de saúde.</p></details>
+      <details><summary>É um livro físico?</summary><p>Não. É um guia digital. Você recebe no e-mail e no WhatsApp logo após o pagamento e pode imprimir se quiser.</p></details>
+      <details><summary>E se não me ajudar?</summary><p>Você tem 30 dias de garantia. Se não te ajudar, é só pedir e devolvemos todo o seu dinheiro.</p></details>
     </div>
     <a class="btn pulse" href="#precos">Quero o meu guia</a>
   </div>
@@ -423,9 +445,17 @@ document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;i
 
 
 
-const b3=document.querySelector('.book3d');
-if(b3){b3.addEventListener('click',()=>b3.classList.toggle('on'));
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>b3.classList.add('on'),400);setTimeout(()=>b3.classList.remove('on'),2200);io.disconnect();}}),{threshold:.6});io.observe(b3);}
+// Livros 3D: a pessoa arrasta para o lado para girar e, ao soltar, o livro volta para a posição inicial
+document.querySelectorAll('.book3d').forEach(box=>{
+  const book=box.querySelector('.book');
+  const base=box.classList.contains('sm')?24:26;
+  let x0=null;
+  const pos=(a,anim)=>{book.style.transition=anim?'transform .8s cubic-bezier(.2,.8,.2,1)':'none';book.style.transform='rotateY('+a+'deg) rotateX(4deg)';};
+  box.addEventListener('pointerdown',e=>{x0=e.clientX;box.setPointerCapture(e.pointerId);});
+  box.addEventListener('pointermove',e=>{if(x0===null)return;pos(Math.max(-60,Math.min(75,base+(e.clientX-x0)*0.6)),false);});
+  const solta=()=>{if(x0===null)return;x0=null;pos(base,true);};
+  box.addEventListener('pointerup',solta);box.addEventListener('pointercancel',solta);
+});
 </script>
 </body>
 </html>
