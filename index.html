@@ -7,7 +7,7 @@
 <meta name="description" content="Guia prático ilustrado para cuidar de uma pessoa acamada em casa, com segurança e carinho.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#2a2623; --text:#3a3430; --soft:#6f6660;
@@ -307,6 +307,20 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
 .gar strong{display:block;font-family:Lexend,sans-serif;font-weight:600;color:var(--ink);font-size:17px}
 .gar p{font-size:15px;margin-top:2px;line-height:1.4}
 .ver{display:block;text-align:center;margin-top:16px;font-family:Lexend,sans-serif;font-weight:600;font-size:15px;color:var(--teal-d);text-decoration:underline;text-underline-offset:3px}
+/* ficha preenchida no card de 37 */
+.nota{position:relative;background:#fff;border-radius:6px;padding:22px 18px 16px;margin:18px 6px 4px;transform:rotate(-1.5deg);box-shadow:0 10px 24px rgba(42,38,35,.16)}
+.nota:before{content:"";position:absolute;top:-9px;left:50%;margin-left:-11px;width:22px;height:22px;border-radius:50%;background:var(--teal);box-shadow:0 3px 6px rgba(0,0,0,.25)}
+.nota-k{font-family:Lexend,sans-serif;font-weight:700;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--terra);text-align:center}
+.nota-t{font-family:Lexend,sans-serif;font-weight:600;font-size:15px;color:var(--ink);margin-top:6px}
+.nota-l{list-style:none;margin-top:6px}
+.nota-l li,.nota-a{font-family:Caveat,cursive;font-weight:500;font-size:23px;line-height:1.2;color:#1f3f8a;padding:3px 0}
+.nota-l li:before{content:"· "}
+.nota-a{text-align:right;font-size:20px;margin-top:4px;color:#555}
+/* ficha preenchida na seção de bônus */
+.fv{display:block;margin-top:22px;background:#fff;border-radius:16px;padding:12px 12px 14px;box-shadow:0 8px 24px rgba(42,38,35,.12);text-decoration:none}
+.fv img{display:block;width:100%;border-radius:8px}
+.fv span{display:block;text-align:center;margin-top:10px;font-family:Lexend,sans-serif;font-weight:600;font-size:14px;color:var(--teal-d)}
+.lb.solo .lbp,.lb.solo .lbn{display:none}
 </style>
 </head>
 <body>
@@ -379,7 +393,7 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
     <div class="ensina">
       <div><b>1</b><span>Primeiros dias em casa</span></div>
       <div><b>2</b><span>Higiene e banho na cama</span></div>
-      <div><b>3</b><span>Remédios sem erro</span></div>
+      <div><b>3</b><span>Organizar os remédios</span></div>
       <div><b>4</b><span>Virar, sentar e passar para a cadeira</span></div>
       <div><b>5</b><span>Pele e escara</span></div>
       <div><b>6</b><span>Alimentação e boca</span></div>
@@ -396,11 +410,12 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
     <div class="kicker center">Bônus do plano Completo</div>
     <h2 class="center">🎁 4 bônus que acompanham o guia</h2>
     <div class="shelf">
-      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Fichas para a geladeira</span></div><div class="cover"><img class="mk" src="img/01_Fichas_para_a_geladeira.webp" alt="" loading="lazy"></div></div></div><h3>Fichas para a geladeira</h3><p>Rotina, remédios, mudança de posição, pele e emergência.</p></div>
+      <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Fichas para a geladeira</span></div><div class="cover"><img class="mk" src="img/01_Fichas_para_a_geladeira.webp" alt="" loading="lazy"></div></div></div><h3>Fichas para a geladeira</h3><p>Quem chega no próximo turno sabe o que já foi feito, sem precisar ligar.</p></div>
       <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Kit dos primeiros dias</span></div><div class="cover"><img class="mk" src="img/02_Kit_dos_primeiros_dias.webp" alt="" loading="lazy"></div></div></div><h3>Kit dos primeiros dias</h3><p>O que fazer quando a pessoa chega em casa e o que comprar para o quarto.</p></div>
       <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Alívio para quem cuida</span></div><div class="cover"><img class="mk" src="img/03_Alivio_para_quem_cuida.webp" alt="" loading="lazy"></div></div></div><h3>Alívio para quem cuida</h3><p>Alongamentos de 5 minutos para as costas e um jeito simples de revezar.</p></div>
       <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Direitos da família</span></div><div class="cover"><img class="mk" src="img/04_Direitos_da_familia.webp" alt="" loading="lazy"></div></div></div><h3>Direitos da família</h3><p>Fralda grátis, atendimento em casa pelo SUS e outros direitos, explicados.</p></div>
     </div>
+    <a class="fv" href="img/fichas/exemplo-ficha.webp"><img src="img/fichas/exemplo-ficha.webp" alt="Exemplo de ficha de passagem de turno preenchida" loading="lazy"><span>Uma ficha preenchida. Toque para ver grande.</span></a>
   </div>
 </section>
 
@@ -439,6 +454,16 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
             <li>Direitos da família</li>
           </ul>
         </div>
+        <div class="nota">
+          <div class="nota-k">Exemplo de ficha preenchida</div>
+          <div class="nota-t">Fica para o próximo turno</div>
+          <ul class="nota-l">
+            <li>Comprar fralda G (acaba amanhã)</li>
+            <li>Consulta quinta 9h no posto</li>
+            <li>Olhar o calcanhar no banho</li>
+          </ul>
+          <div class="nota-a">Ana, 19h → Paulo</div>
+        </div>
         <a class="btn pulse" href="#" data-plano="completo">Quero o Completo</a>
       </div>
       <div class="plan">
@@ -450,6 +475,7 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
         <ul class="items">
           <li>Guia completo, do banho à cadeira</li>
           <li>No celular ou impresso</li>
+          <li>Pode dividir com a família</li>
           <li>Acesso para sempre</li>
           <li class="no">Fichas para a geladeira</li>
           <li class="no">Kit dos primeiros dias</li>
@@ -561,6 +587,12 @@ const fecha=()=>pop.classList.remove('on');
 pop.querySelector('.pop-x').addEventListener('click',fecha);
 pop.addEventListener('click',e=>{if(e.target===pop)fecha();});
 document.getElementById('popNo').addEventListener('click',e=>{e.preventDefault();fecha();const h=bas.getAttribute('href');if(h&&h!=='#')location.href=h;});
+})();
+</script>
+<script>
+(()=>{const fv=document.querySelector('.fv'),lb=document.getElementById('lb'),im=document.getElementById('lbimg');if(!fv||!lb||!im)return;
+fv.addEventListener('click',e=>{e.preventDefault();lb.classList.add('solo');im.src=fv.getAttribute('href');im.alt='Ficha de passagem de turno preenchida';lb.classList.add('on');});
+document.querySelectorAll('#car .slide').forEach(s=>s.addEventListener('click',()=>lb.classList.remove('solo'),true));
 })();
 </script>
 </body>
