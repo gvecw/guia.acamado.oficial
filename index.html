@@ -321,6 +321,8 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
 .fv img{display:block;width:100%;border-radius:8px}
 .fv span{display:block;text-align:center;margin-top:10px;font-family:Lexend,sans-serif;font-weight:600;font-size:14px;color:var(--teal-d)}
 .lb.solo .lbp,.lb.solo .lbn{display:none}
+.fv.fv-card{margin:18px 0 4px;padding:10px 10px 12px}
+.fv.fv-card span{font-size:13px}
 </style>
 </head>
 <body>
@@ -414,7 +416,6 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
       <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Alívio para quem cuida</span></div><div class="cover"><img class="mk" src="img/03_Alivio_para_quem_cuida.webp" alt="" loading="lazy"></div></div></div><h3>Alívio para quem cuida</h3><p>Alongamentos de 5 minutos para as costas e um jeito simples de revezar.</p></div>
       <div class="shelf-it"><div class="book3d sm" aria-hidden="true"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine" style="background:#1d4f46"><span>Direitos da família</span></div><div class="cover"><img class="mk" src="img/04_Direitos_da_familia.webp" alt="" loading="lazy"></div></div></div><h3>Direitos da família</h3><p>Fralda grátis, atendimento em casa pelo SUS e outros direitos, explicados.</p></div>
     </div>
-    <a class="fv" href="img/fichas/exemplo-ficha.webp"><img src="img/fichas/exemplo-ficha.webp" alt="Exemplo de ficha de passagem de turno preenchida" loading="lazy"><span>Uma ficha preenchida. Toque para ver grande.</span></a>
   </div>
 </section>
 
@@ -453,16 +454,7 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
             <li>Direitos da família</li>
           </ul>
         </div>
-        <div class="nota">
-          <div class="nota-k">Exemplo de ficha preenchida</div>
-          <div class="nota-t">Fica para o próximo turno</div>
-          <ul class="nota-l">
-            <li>Comprar fralda G (acaba amanhã)</li>
-            <li>Consulta quinta 9h no posto</li>
-            <li>Olhar o calcanhar no banho</li>
-          </ul>
-          <div class="nota-a">Ana, 19h → Paulo</div>
-        </div>
+        <a class="fv fv-card" href="img/fichas/exemplo-ficha.webp"><img src="img/fichas/exemplo-ficha.webp" alt="Ficha de passagem de turno preenchida" loading="lazy"><span>Assim fica a ficha quando você preenche. Toque para ver.</span></a>
         <a class="btn pulse" href="#" data-plano="completo">Quero o Completo</a>
       </div>
       <div class="plan">
@@ -589,8 +581,8 @@ document.getElementById('popNo').addEventListener('click',e=>{e.preventDefault()
 })();
 </script>
 <script>
-(()=>{const fv=document.querySelector('.fv'),lb=document.getElementById('lb'),im=document.getElementById('lbimg');if(!fv||!lb||!im)return;
-fv.addEventListener('click',e=>{e.preventDefault();lb.classList.add('solo');im.src=fv.getAttribute('href');im.alt='Ficha de passagem de turno preenchida';lb.classList.add('on');});
+(()=>{const lb=document.getElementById('lb'),im=document.getElementById('lbimg');if(!lb||!im)return;
+document.querySelectorAll('.fv').forEach(fv=>fv.addEventListener('click',e=>{e.preventDefault();lb.classList.add('solo');im.src=fv.getAttribute('href');im.alt='Ficha de passagem de turno preenchida';lb.classList.add('on');}));
 document.querySelectorAll('#car .slide').forEach(s=>s.addEventListener('click',()=>lb.classList.remove('solo'),true));
 })();
 </script>
