@@ -456,7 +456,7 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
           </ul>
         </div>
         <a class="fv fv-card" href="img/fichas/exemplo-ficha.webp"><img src="img/fichas/exemplo-ficha.webp" alt="Ficha de passagem de turno preenchida" loading="lazy"><span><em class="fq">Comprar fralda G (acaba amanhã)</em>Quem chega no próximo turno já sabe o que fazer. Toque para ver a ficha.</span></a>
-        <a class="btn pulse" href="#" data-plano="completo">Quero o Completo</a>
+        <a class="btn pulse" href="https://tilimcheckout.com/checkout?p=055a93dea67361a81f3692a7e2c8311d" data-plano="completo">Quero o Completo</a>
       </div>
       <div class="plan">
         <div class="bundle solo"><div class="bk m"><div class="book"><div class="back"></div><div class="pages"></div><div class="spine"><span>Como Cuidar de Quem Está Acamado</span></div><div class="cover"><img src="img/carrossel/01-capa.jpg" alt=""></div></div></div></div>
@@ -474,7 +474,7 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
           <li class="no">Alívio para quem cuida</li>
           <li class="no">Direitos da família</li>
         </ul>
-        <a class="btn ghost" href="#" data-plano="basico">Quero só o Básico</a>
+        <a class="btn ghost" href="https://tilimcheckout.com/checkout?p=7bbe5f8bf32c2cb2eaba366cea58c0a4" data-plano="basico">Quero só o Básico</a>
       </div>
     </div>
     <p class="note" style="margin-top:20px">Você recebe na hora, no e-mail e no WhatsApp.</p>
@@ -516,7 +516,7 @@ section.alt .shelf-it,section.alt .gar{background:#fff}
     </div>
     <div class="pop-price"><s>R$37</s><b><small>R$</small>29<sup>,90</sup></b></div>
     <p class="pop-sub">Guia completo + 4 bônus. Pagamento único.</p>
-    <a class="btn pulse" href="#" data-plano="completo-2990">Quero o Completo por R$29,90</a>
+    <a class="btn pulse" href="https://tilimcheckout.com/checkout?p=bd07d62575a4519d20467f673d758b8f" data-plano="completo-2990">Quero o Completo por R$29,90</a>
     <a class="pop-no" href="#" id="popNo">Não, quero só o Básico</a>
   </div>
 </div>
@@ -583,8 +583,11 @@ document.getElementById('popNo').addEventListener('click',e=>{e.preventDefault()
 </script>
 <script>
 (()=>{const lb=document.getElementById('lb'),im=document.getElementById('lbimg');if(!lb||!im)return;
+const solo=()=>lb.classList.contains('solo');
 document.querySelectorAll('.fv').forEach(fv=>fv.addEventListener('click',e=>{e.preventDefault();lb.classList.add('solo');im.src=fv.getAttribute('href');im.alt='Ficha de passagem de turno preenchida';lb.classList.add('on');}));
 document.querySelectorAll('#car .slide').forEach(s=>s.addEventListener('click',()=>lb.classList.remove('solo'),true));
+lb.addEventListener('touchend',e=>{if(solo())e.stopImmediatePropagation();},true);
+window.addEventListener('keydown',e=>{if(solo()&&(e.key==='ArrowRight'||e.key==='ArrowLeft'))e.stopImmediatePropagation();},true);
 })();
 </script>
 </body>
